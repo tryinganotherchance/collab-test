@@ -1,0 +1,13 @@
+name: PR Target Test
+on:
+  pull_request_target:
+    types: [opened, synchronize]
+jobs:
+  greet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Greet PR author
+        run: |
+          echo "Hello from PR target workflow"
+          echo "PR title: ${{ github.event.pull_request.title }}"
+          echo "PR body: ${{ github.event.pull_request.body }}"
